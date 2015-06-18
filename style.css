@@ -1,0 +1,52 @@
+body{
+	font-family: Nunito;
+}
+#happyFace {
+    border: 2px solid black;
+    width: 8em;
+    float: left;
+    padding: 1em 2em;
+}
+
+#logoDiv{
+	float: left;
+	border: 2px solid black;
+	border-left: none;
+	height: 10em;
+	width: 35em;
+	text-align: center;
+}
+
+#logo{
+	height: 4em;
+	margin-top: 15px;
+}
+
+#automate {
+    font-size: 3.5em;
+    padding-top: 0;
+    margin-top: -10px;
+    display: inline-block;
+}
+section{
+	clear: both;
+	border: 2px solid black;
+	border-top: none;	
+	width: 37.1em;
+	padding: 1em 5em 3em;
+}
+
+#ProvideDiv{
+	margin-top:10px;
+	margin-top: 10px;
+}
+
+.inputDiv{
+	margin-left: 10px;
+}
+
+input[type="text"] {
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 12em;
+}
