@@ -52,8 +52,16 @@ section{
 	margin-left: 20px;
 }
 
+.radioDiv{
+	margin-top: 10px;
+}
+
 input[type="text"] {
     margin-top: 10px;
     margin-right: 20px;
     width: 10em;
+}
+
+.underline{
+	text-decoration: underline;
 }
