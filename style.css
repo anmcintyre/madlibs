@@ -56,10 +56,10 @@ section{
 	margin-top: 10px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     margin-top: 10px;
     margin-right: 20px;
-    width: 10em;
+    width: 9.9em;
 }
 
 .underline{
