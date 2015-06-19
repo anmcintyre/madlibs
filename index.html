@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-messages.js"></script> 
 	<script src="main.js"></script>
 </head>
 <body>
@@ -17,35 +18,72 @@
 			<span id="automate">Automate This!</span>
 		</span>
 	</header>
-	<section>
+	<section ng-show="showInput">
 		<div id="provideDiv">Provide the following words:</div>
-		<div class="inputDiv">
-			<input type="text" placeholder="Name" ng-model="name" />
-			<input type="text" placeholder="Job title" ng-model="jobTitle" />
-			<input type="text" placeholder="Tedious task" ng-model="tediousTask" />
-		</div>
-		<div class="inputDiv">
-			<input type="text" placeholder="Dirty task" ng-model="dirtyTask" />
-			<input type="text" placeholder="Celebrity" ng-model="celebrity"/>
-			<input type="text" placeholder="Useless skill" ng-model="uselessSkill" />
-		</div>
-		<div class="inputDiv">
-			<input type="text" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity"/>
-			<input type="text" placeholder="Huge number" type="number" ng-model="hugeNumber"/>
-			<input type="text" placeholder="Adjective" ng-model="adjective" />
-		</div>
-		<div class="inputDiv radioDiv">
-			<input type="radio" name="sex" id="male" ng-click="changeSex('male')"/><label for="male">Male</label>
-			<input type="radio" name="sex" id="female" checked="changeSex('female')" /><label for="female">Female</label>
-		</div>
+		<form name="myForm" ng-submit="submit()" novalidate>
+			<div class="inputDiv">
+				<input type="text" name="name" placeholder="Name" ng-model="name" required />
+				<input type="text" name="jobTitle" placeholder="Job title" ng-model="jobTitle" required />
+				<input type="text" name="tediousTask" placeholder="Tedious task" ng-model="tediousTask" required />
+			</div>
+			<div class="inputDiv">
+				<input type="text" name="dirtyTask" placeholder="Dirty task" ng-model="dirtyTask" required />
+				<input type="text" name="celebrity" placeholder="Celebrity" ng-model="celebrity" required />
+				<input type="text" name="uselessSkill" placeholder="Useless skill" ng-model="uselessSkill" required />
+			</div>
+			<div class="inputDiv">
+				<input type="text" name="obnoxiousCelebrity" placeholder="Obnoxious celebrity" ng-model="obnoxiousCelebrity" required />
+				<input type="number" name="hugeNumber" placeholder="Huge number" ng-model="hugeNumber" required min="1000" />
+				<input type="text" name="adjective" placeholder="Adjective" ng-model="adjective" required />
+			</div>
+			<div class="inputDiv radioDiv">
+				<input type="radio" name="sex" id="male" ng-click="changeSex('male')"/><label for="male">Male</label>
+				<input type="radio" name="sex" id="female" checked="changeSex('female')" /><label for="female">Female</label>
+			</div>
+			<hr />
+			<input class="button" type="submit" value="Generate My MadLib" />
+		</form>
 	</section>
-	<section>
+	<section ng-show="!showInput">
 		<div>
 		<span class="underline">{{ name }}</span> was a <span class="underline">{{ jobTitle }}</span> who loved technology. Although {{ pronoun }} loved parts of {{ possessive }} job, {{ pronoun }} absolutely hated <span class="underline">{{tediousTask}}</span> and <span class="underline">{{dirtyTask}}</span>. So, <span class="underline">{{name}}</span> met with {{ possessive }} life mentor <span class="underline">{{celebrity}}</span> who told {{ possessive }} to learn how to <span class="underline">{{uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="underline">{{uselessSkill}}</span> so {{ pronoun }} studied programming instead. <br /><br />
 		 
 		What a great decision! With {{ possessive }} new skills, <span class="underline">{{name}}</span> built a(n) <span class="underline">{{adjective}}</span> robot named <span class="underline">{{obnoxiousCelebrity}}</span> that not only loved <span class="underline">{{dirtyTask}}</span> but did it <span class="underline">{{hugeNumber}}</span> faster. 
 		</div>
+		<hr />
+		<button class="button" ng-click="startOver()">Start Over</button>
+
 	</section>
-	
+	<div ng-messages="myForm.$submitted && myForm.name.$error" role="alert">
+		<div ng-message="required">Please enter the Name</div>
+	</div>	
+	<div ng-messages="myForm.$submitted && myForm.jobTitle.$error" role="alert">
+		<div ng-message="required">Please enter the Job Title</div>
+	</div>	
+	<div ng-messages="myForm.$submitted && myForm.tediousTask.$error" role="alert">
+		<div ng-message="required">Please enter the Tedious task</div>
+	</div>	
+
+	<div ng-messages="myForm.$submitted && myForm.dirtyTask.$error" role="alert">
+		<div ng-message="required">Please enter the Dirty task</div>
+	</div>	
+	<div ng-messages="myForm.$submitted && myForm.celebrity.$error" role="alert">
+		<div ng-message="required">Please enter the Celebrity</div>
+	</div>	
+	<div ng-messages="myForm.$submitted && myForm.uselessSkill.$error" role="alert">
+		<div ng-message="required">Please enter the Useless skill</div>
+	</div>		
+
+	<div ng-messages="myForm.$submitted && myForm.obnoxiousCelebrity.$error" role="alert">
+		<div ng-message="required">Please enter the Obnoxious celebrity</div>
+	</div>	
+	<div ng-messages="myForm.$submitted && myForm.hugeNumber.$error" role="alert">
+		<div ng-message="required">Please enter the Huge number</div>
+		<div ng-message="number">Huge Number is not a number.  Please enter a number larger than 1000.</div>
+		<div ng-message="min">Please enter a number larger than 1000</div>
+	</div>	
+	<div ng-messages="myForm.$submitted && myForm.adjective.$error" role="alert">
+		<div ng-message="required">Please enter the Adjective</div>
+	</div>		
 </body>
 </html>
