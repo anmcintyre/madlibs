@@ -35,13 +35,41 @@ header{
     margin-top: -10px;
     display: inline-block;
 }
+
+
 section{
 	clear: both;
 	border: 2px solid black;
 	border-top: none;	
 	width: 31.6em;
 	padding: 1em 3em 3em;
-	margin: 0 auto;
+	margin: 0 auto;	
+	opacity: 1;
+}
+
+
+/* Initial state when showing */
+.animate-show.ng-hide-remove{
+    -webkit-transition: opacity ease-out 5s;
+    transition: opacity ease-out 2s;
+    opacity: 0;		
+}
+
+/* Final state when showing */
+.animate-show.ng-hide-remove-active{
+	opacity: 1;
+}
+
+/* Initial state when showing */
+.animate-show.ng-hide-remove .underline{
+    -webkit-transition: opacity ease-out 5s;
+    transition: opacity ease-out 5s;
+    opacity: 0;		
+}
+
+/* Final state when showing */
+.animate-show.ng-hide-remove-active .underline{
+	opacity: 1;
 }
 
 #ProvideDiv{
@@ -64,6 +92,7 @@ input[type="text"], input[type="number"] {
 
 .underline{
 	text-decoration: underline;
+	color: darkgrey;
 }
 
 .button{
@@ -78,3 +107,4 @@ input[type="text"], input[type="number"] {
   padding: 5px;	
   color: red;
 }
+

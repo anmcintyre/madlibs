@@ -7,6 +7,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-messages.js"></script> 
+	<script type="text/javascript" src="https://code.angularjs.org/1.3.14/angular-animate.min.js"></script>	
 	<script src="main.js"></script>
 </head>
 <body>
@@ -44,7 +45,7 @@
 			<input class="button" type="submit" value="Generate My MadLib" />
 		</form>
 	</section>
-	<section ng-show="!showInput">
+	<section ng-show="!showInput" class="animate-show">
 		<div>
 		<span class="underline">{{ name }}</span> was a <span class="underline">{{ jobTitle }}</span> who loved technology. Although {{ pronoun }} loved parts of {{ possessive }} job, {{ pronoun }} absolutely hated <span class="underline">{{tediousTask}}</span> and <span class="underline">{{dirtyTask}}</span>. So, <span class="underline">{{name}}</span> met with {{ possessive }} life mentor <span class="underline">{{celebrity}}</span> who told {{ possessive }} to learn how to <span class="underline">{{uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="underline">{{uselessSkill}}</span> so {{ pronoun }} studied programming instead. <br /><br />
 		 

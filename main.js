@@ -1,4 +1,4 @@
-var app = angular.module('madLibs', ['ngMessages']);
+var app = angular.module('madLibs', ['ngMessages', 'ngAnimate']);
 app.controller('madLibsCtrl', function($scope) {
     $scope.pronoun = "she";
     $scope.possessive = "her";
